@@ -10,8 +10,8 @@ state "rogin" <<sdlreceive>>
 state ログイン{
 state input <<choice>>
 state "mainpage" <<sdlreceive>>
-state 入力画面:do/メールアドレス,パスワード入力
-state エラー:do/エラーを表示
+入力画面:do/メールアドレス,パスワード入力
+エラー:do/エラーを表示
     [*]-> 入力画面
     入力画面->input
     input --> エラー:メールorパスワードが違っていた場合
