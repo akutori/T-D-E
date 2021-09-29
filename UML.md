@@ -9,7 +9,7 @@
 メインページ-->カート
 メインページ-up->商品詳細
 
-state メインページ{
+state メインページ<<mainpage>>{
 state "ログイン" as rogininmainpage  <<sdlreceive>>
 state "カート" as cartinmainpage <<sdlreceive>>
 state "商品詳細" as goodsdetailinmainpage <<sdlreceive>>
@@ -18,7 +18,7 @@ state "商品詳細" as goodsdetailinmainpage <<sdlreceive>>
     [*]-up-> goodsdetailinmainpage :カートをクリック
 }
 
-state ログイン{
+state ログイン<<rogin>>{
 state input <<choice>>
 state "メインページ" as mainpageinrogin<<sdlreceive>>
 
@@ -51,10 +51,15 @@ state "カート" as cartingoodsdetail <<sdlreceive>>
     [*]->cartingoodsdetail :カートに入れるをクリック
 }
 
+' メインページカラー
+skinparam stateBorderColor<<mainpage>> #9efffa
 state メインページ #9efffa
+state メインページ borderColor #9efffa
 state mainpageingoodsdetail #9efffa
 state mainpageinrogin #9efffa
 
+' ログインカラー
+skinparam stateBorderColor<<rogin>> #ffd4ff
 state ログイン #ffd4ff
 state rogininmainpage #ffd4ff
 
