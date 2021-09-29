@@ -16,7 +16,7 @@ state "goodsdetail" <<sdlreceive>>
 
 state ログイン{
 state input <<choice>>
-state "mainpage"<<sdlreceive>>
+state "メインページ" as mainpageinrogin<<sdlreceive>>
 
 入力画面:do/メールアドレス,パスワード入力
 エラーページ:do/エラーを表示
@@ -28,7 +28,7 @@ state "mainpage"<<sdlreceive>>
 }
 
 state 購入画面{
-state "メインページ" as returnmain<<sdlreceive>>
+state "メインページ" as mainpageingoodsdetail<<sdlreceive>>
 注文確定:do/注文を確定したことを表示する
     [*]->注文確定 :購入確定を押したとき
     注文確定-->returnmain
@@ -36,13 +36,13 @@ state "メインページ" as returnmain<<sdlreceive>>
 
 
 state カート{
-state "goodsdetail" as goodsincart <<sdlreceive>>
+state "商品詳細" as goodsdetailincart <<sdlreceive>>
 
     [*]->goodsincart :クリックする
 }
 
 state 商品詳細{
-state "cart" as detailincart <<sdlreceive>>
+state "カート" as cartingoodsdetail <<sdlreceive>>
 
     [*]->detailincart :カートに入れるをクリック
 }
