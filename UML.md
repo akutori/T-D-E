@@ -23,8 +23,12 @@ state "mainpage"<<sdlreceive>>
 
 }
 
-state カート{}
-state 商品詳細{}
+state カート{
+    [*]
+}
+state 商品詳細{
+    [*]
+}
 
 @enduml
 ```
