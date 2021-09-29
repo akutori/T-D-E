@@ -28,11 +28,12 @@ state 購入画面{
 }
 
 state カート{
-state "goodsdetail" as goods <<sdlreceive>>
-    [*]->goods :クリックする
+state "goodsdetail" as goodsincart <<sdlreceive>>
+    [*]->goodsincart :クリックする
 }
 state 商品詳細{
-    [*]->cart :カートに入れるをクリック
+state "cart" as detailincart <<sdlreceive>>
+    [*]->detailincart :カートに入れるをクリック
 }
 
 @enduml
