@@ -19,7 +19,7 @@ state "mainpage" <<sdlreceive>>
     input --> エラー:メールorパスワードが違っていた場合
 
     input --> トップページ:両方あっていた場合
-    input -> main
+    input -> mainpage
 }
 
 
