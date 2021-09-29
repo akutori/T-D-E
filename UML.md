@@ -28,6 +28,7 @@ state 購入画面{
 }
 
 state カート{
+state "goodsdetail" <<sdlreceive>>
     [*]->goodsdetail :クリックする
 }
 state 商品詳細{
