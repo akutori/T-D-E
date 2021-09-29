@@ -1,5 +1,9 @@
 ```uml
 @startuml
+
+state メインページ #ff9100
+
+
 [*]->メインページ
 メインページ->ログイン
 メインページ-->カート
@@ -46,6 +50,11 @@ state "カート" as cartingoodsdetail <<sdlreceive>>
 
     [*]->cartingoodsdetail :カートに入れるをクリック
 }
+
+skinparam メインページ{
+
+}
+
 
 @enduml
 ```
