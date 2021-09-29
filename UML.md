@@ -2,13 +2,10 @@
 @startuml
 [*]->メインページ
 state メインページ{
-    [*]--> choice : ログインアイコンをクリック
-    choice -->ログイン : ログインアイコンをクリック 
-    ログイン:ログインボタンをクリック
+    [*]--> rogin : ログインアイコンをクリック
 
 }
-state "rogin" <<sdlreceive>>
-
+state "rogin" <<sdlreceive>> /* 定義済み処理 */
 state input <<choice>>
 
 state ログイン{
