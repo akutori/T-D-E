@@ -51,10 +51,5 @@ state "カート" as cartingoodsdetail <<sdlreceive>>
     [*]->cartingoodsdetail :カートに入れるをクリック
 }
 
-skinparam メインページ{
-
-}
-
-
 @enduml
 ```
