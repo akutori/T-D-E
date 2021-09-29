@@ -51,7 +51,9 @@ state "カート" as cartingoodsdetail <<sdlreceive>>
     [*]->cartingoodsdetail :カートに入れるをクリック
 }
 
-state メインページ #ff9100
+state メインページ #9efffa
+state mainpageingoodsdetail #9efffa
+state mainpageinrogin #9efffa
 
 @enduml
 ```
