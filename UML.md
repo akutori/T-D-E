@@ -54,7 +54,6 @@ state "カート" as cartingoodsdetail <<sdlreceive>>
 ' メインページカラー
 skinparam stateBorderColor<<mainpage>> #9efffa
 state メインページ #9efffa
-state メインページ borderColor #9efffa
 state mainpageingoodsdetail #9efffa
 state mainpageinrogin #9efffa
 
