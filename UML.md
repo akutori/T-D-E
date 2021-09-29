@@ -1,11 +1,12 @@
 ```uml
 @startuml
-state "rogin" <<sdlreceive>>
+
 state input <<choice>>
 
 
 [*]->メインページ
 state メインページ{
+state rogin
     [*]-> rogin : ログインアイコンをクリック
 
 }
