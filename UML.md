@@ -6,7 +6,7 @@ state input <<choice>>
 
 [*]->メインページ
 state メインページ{
-    [*]--> rogin : ログインアイコンをクリック
+    [*]-> rogin : ログインアイコンをクリック
 
 }
 state "rogin" <<sdlreceive>> 
