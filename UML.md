@@ -9,9 +9,9 @@ state メインページ{
 state "ログイン" as rogininmainpage  <<sdlreceive>>
 state "カート" as cartinmainpage <<sdlreceive>>
 state "商品詳細" as goodsdetailinmainpage <<sdlreceive>>
-    [*]-> ログイン :ログインアイコンをクリック
-    [*]--> カート :カートをクリック
-    [*]-up-> 商品詳細 :カートをクリック
+    [*]-> rogininmainpage :ログインアイコンをクリック
+    [*]--> cartinmainpage :カートをクリック
+    [*]-up-> goodsdetailinmainpage :カートをクリック
 }
 
 state ログイン{
