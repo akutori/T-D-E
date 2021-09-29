@@ -12,12 +12,14 @@ state "rogin" <<sdlreceive>>
 
 state ログイン{
 state input <<choice>>
+state "mainpage" <<sdlreceive>>
+エラー:エラーを表示
     [*]-> 入力画面:do/メールアドレス,パスワード入力
     入力画面->input
-    エラー:メールorパスワードが違っていた場合
-    メインページ:両方あっていた場合
     input --> エラー:メールorパスワードが違っていた場合
+
     input --> トップページ:両方あっていた場合
+    input -> main
 }
 
 
