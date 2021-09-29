@@ -11,7 +11,7 @@ state rogin
 state ログイン{
 state input <<choice>>
 state "mainpage" as main <<sdlreceive>>
-state mainpage
+state main
 入力画面:do/メールアドレス,パスワード入力
 エラー:do/エラーを表示
     [*]-> 入力画面
