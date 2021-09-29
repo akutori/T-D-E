@@ -11,8 +11,9 @@ state rogin
 
 }
 state "rogin" <<sdlreceive>> 
-state input <<choice>>
+
 state ログイン{
+    state input <<choice>>
     [*]-> 入力画面:do/メールアドレス,パスワード入力
     入力画面-->input
     input --> エラー:メールorパスワードが違っていた場合
