@@ -2,9 +2,12 @@
 @startuml
 [*]->メインページ
 state メインページ{
-state "rogin" <<sdlreceive>> 
-
-    [*]-> rogin : ログインアイコンをクリック
+state "rogin" <<sdlreceive>>
+state "cart" <<sdlreceive>>
+state "goodsdetail" <<sdlreceive>>
+    [*]-> rogin :ログインアイコンをクリック
+    [*]--> cart :カートをクリック
+    [*]-up-> goodsdetail :カートをクリック
 }
 
 
@@ -15,8 +18,13 @@ state "mainpage"<<sdlreceive>>
 エラー:do/エラーを表示
     [*]--> 入力画面
     入力画面->input
-    input-->エラー:メール or パスワードが違っていた場合
-    input-->mainpage:両方あっていた場合
+    input-->エラーページ:メール or パスワードが違っていた場合
+    input-->mainpage : 両方あっていた場合
+
 }
+
+state カート{}
+state 商品詳細{}
+
 @enduml
 ```
