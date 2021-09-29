@@ -1,8 +1,6 @@
 ```uml
 @startuml
 
-state input <<choice>>
-
 
 [*]->メインページ
 state メインページ{
