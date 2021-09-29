@@ -7,6 +7,8 @@ state メインページ{
     ログイン:ログインボタンをクリック
 
 }
+state "rogin" <<sdlreceive>>
+
 state input <<choice>>
 
 state ログイン{
