@@ -3,7 +3,7 @@
 [*]->メインページ
 state メインページ{
 state "rogin" <<sdlreceive>> 
-state rogin
+
     [*]-> rogin : ログインアイコンをクリック
 }
 
