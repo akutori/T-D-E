@@ -12,10 +12,12 @@ state "goodsdetail" <<sdlreceive>>
 
 
 state ログイン{
+
 state input <<choice>>
 state "mainpage"<<sdlreceive>>
+
 入力画面:do/メールアドレス,パスワード入力
-エラー:do/エラーを表示
+エラーページ:do/エラーを表示
     [*]--> 入力画面
     入力画面->input
     input-->エラーページ:メール or パスワードが違っていた場合
