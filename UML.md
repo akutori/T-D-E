@@ -44,7 +44,7 @@ state "商品詳細" as goodsdetailincart <<sdlreceive>>
 state 商品詳細{
 state "カート" as cartingoodsdetail <<sdlreceive>>
 
-    [*]->kartingoodsdetail :カートに入れるをクリック
+    [*]->cartingoodsdetail :カートに入れるをクリック
 }
 
 @enduml
