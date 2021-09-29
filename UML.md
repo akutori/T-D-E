@@ -14,7 +14,8 @@ state "mainpage" <<sdlreceive>>
 エラー:do/エラーを表示
     [*]-> 入力画面
     入力画面->input
-    input --> エラー:メールorパスワードが違っていた場合
+    input --> エラー
+    input -->エラー:main or パスワードが違っていた場合
     input --> mainpage:両方あっていた場合
     input --> mainpage
 }
