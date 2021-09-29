@@ -28,6 +28,7 @@ state "mainpage"<<sdlreceive>>
 }
 
 state 購入画面{
+注文確定:do/注文を確定したことを表示する
     [*]->注文確定 :購入確定を押したとき
 }
 
