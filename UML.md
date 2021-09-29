@@ -55,5 +55,8 @@ state メインページ #9efffa
 state mainpageingoodsdetail #9efffa
 state mainpageinrogin #9efffa
 
+state ログイン #ff9eff
+state rogininmainpage #ff9eff
+
 @enduml
 ```
