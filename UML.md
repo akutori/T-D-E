@@ -1,7 +1,7 @@
 ```uml
 @startuml
 
-state メインページ #ff9100
+
 
 
 [*]->メインページ
@@ -50,6 +50,8 @@ state "カート" as cartingoodsdetail <<sdlreceive>>
 
     [*]->cartingoodsdetail :カートに入れるをクリック
 }
+
+state メインページ #ff9100
 
 @enduml
 ```
