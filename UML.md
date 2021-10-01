@@ -48,9 +48,7 @@ state "カート" as detailtocart <<sdlreceive>>
     [*]->detailtocart :カートに入れるをクリック
 }
 
-state ヘッダー {
-
-}
+state "ヘッダー" <<sdlreceive>>
 
 ' メインページカラー
 skinparam stateBorderColor<<mainpage>> #40fff5
