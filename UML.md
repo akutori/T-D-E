@@ -10,9 +10,11 @@ state メインページ<<mainpage>>{
 state "ログイン" as maintologin <<sdlreceive>>
 state "カート" as maintocart <<sdlreceive>>
 state "商品詳細" as maintodetail <<sdlreceive>>
+state "ヘッダー" as headder <<sdlreceive>>
     [*]-> maintologin :ログインアイコンをクリック
     [*]--> maintocart :カートをクリック
     [*]-up-> maintodetail :商品をクリック
+    [*]-left-> headder :ヘッダー要素をクリック
 }
 
 state ログイン<<login>>{
@@ -48,7 +50,7 @@ state "カート" as detailtocart <<sdlreceive>>
     [*]->detailtocart :カートに入れるをクリック
 }
 
-state "ヘッダー" <<sdlreceive>>
+
 
 ' メインページカラー
 skinparam stateBorderColor<<mainpage>> #40fff5
