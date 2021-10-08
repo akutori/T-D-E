@@ -50,24 +50,5 @@ state "カート" as detailtocart <<sdlreceive>>
     [*]->detailtocart :カートに入れるをクリック
 }
 
-
-
-' トップページカラー
-skinparam stateBorderColor<<mainpage>> #40fff5
-state トップページ #9efffa
-state detailtomain #9efffa
-state logintomain #9efffa
-
-' ログインカラー
-skinparam stateBorderColor<<login>> #ff73ff
-state ログイン #ffd4ff
-state maintologin #ffd4ff
-
-' 商品詳細カラー
-skinparam stateBorderColor<<detail>> #78ff88
-state 商品詳細 #a6ffb0
-state carttodetail #a6ffb0
-state maintodetail #a6ffb0
-
 @enduml
 ```
