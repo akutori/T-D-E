@@ -32,7 +32,7 @@ state ログイン{
     state iflogin <<choice>>
     state ログインエラー表示
 
-    [*]--> iflogin : ログイン情報入力
+    [*]-> iflogin : ログイン情報入力
     iflogin -> ログインエラー表示 : 入力情報誤り
     ログインエラー表示 -> iflogin
     iflogin --> main : ログイン成功時
