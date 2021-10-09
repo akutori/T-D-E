@@ -37,11 +37,28 @@ state ログイン{
     iflogin --> main
 }
 state 商品詳細から購入完了{
+    state if1 <<choice>>
+    state if11 <<choice>>
     state "商品詳細" as detail1 <<sdlreceive>>
     state "カート" as cart1 <<sdlreceive>>
     state "支払画面" as cashregister1 <<sdlreceive>>
     state "購入後画面" as completion1 <<sdlreceive>>
-    [*]->
+    state "カート内商品削除確認" as deletegodds <<sdlreceive>>
+    state "カート内商品削除完了" as deleteafter <<sdlreceive>>
+    state "購入後画面" as buyafter <<sdlreceive>>
+    state "トップページに" as main1 <<sdlreceive>>
+
+    [*]-> detail1
+    detail1 -> cart1 : カートに入れるをクリック
+    cart1 -> if1
+    if1 -> cashregister1 : 支払いに進むをクリック
+    cashregister1 -> buyafter : 支払うをクリック
+    buyafter -> [*]
+    if1 --> deletegodds : 削除をクリック
+    deletegodds -> deleteafter : 削除をクリック
+    deleteafter --> if11
+    if11 --> main1 : TOPへをクリック
+    if11 --> cart1 : カートへをクリック
 
 }
 
