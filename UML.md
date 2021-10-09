@@ -7,14 +7,27 @@ state "商品詳細" as detail <<sdlreceive>>
 state "トップページ" as main <<sdlreceive>>
 state "登録完了" as completionofregistration <<sdlreceive>>
 state "検索後画面" as search <<sdlreceive>>
+state "ヘッダー" as headder <<sdlreceive>>
 
-[*]->main
-main->ヘッダー
 
+
+[*]-->main
+[*]-up->headder
+headder-->main : サイトロゴをクリック
 
 state ヘッダー{
-
+    state "ログイン" as logininheadder <<sdlreceive>>
+    state ifheadder <<choise>>
+    state ifheadder1 <<choise>>
+    state "検索後画面" as searchinheadder <<sdlreceive>>
+    [*]->ifheadder : プロフィールアイコンをクリック
+    ifheadder->logininheadder : 未ログイン時
+    ifheadder->マイページ : ログイン時
+    [*]-->searchinheadder :ポピュラー,検索ボタンをクリック
+    [*]-right->ifheadder1 : カテゴリ,ハードをクリック
+    ifheadder1 -> searchinheadder : 項目をクリック
 }
+
 
 state マイページ{
 state "購入履歴" as bought <<sdlreceive>>
