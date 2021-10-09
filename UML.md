@@ -13,16 +13,16 @@ state "ヘッダー" as headder <<sdlreceive>>
 
 [*]-->main
 [*]-up->headder
-headder-->main : サイトロゴをクリック
+headder->main : サイトロゴをクリック
 
 state ヘッダー{
     state "ログイン" as logininheadder <<sdlreceive>>
-    state ifheadder <<choise>>
-    state ifheadder1 <<choise>>
+    state ifheadder <<choice>>
+    state ifheadder1 <<choice>>
     state "検索後画面" as searchinheadder <<sdlreceive>>
     [*]->ifheadder : プロフィールアイコンをクリック
     ifheadder->logininheadder : 未ログイン時
-    ifheadder->マイページ : ログイン時
+    ifheadder-up->マイページ : ログイン時
     [*]-->searchinheadder :ポピュラー,検索ボタンをクリック
     [*]-right->ifheadder1 : カテゴリ,ハードをクリック
     ifheadder1 -> searchinheadder : 項目をクリック
