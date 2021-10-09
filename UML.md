@@ -45,7 +45,7 @@ state ログイン{
     [*]-> iflogin : ログイン情報入力
     iflogin -up-> ログインエラー表示 : 入力情報誤り
     ログインエラー表示 --> iflogin
-    iflogin -> main : ログイン成功時
+    iflogin --> main : ログイン成功時
 }
 state 商品詳細から購入完了{
     state if1 <<choice>>
