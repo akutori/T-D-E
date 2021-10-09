@@ -14,7 +14,7 @@ state "ヘッダー" as headder <<sdlreceive>>
 
 
 [*]-->joinmain
-[*]->headder
+[*]-left->headder
 
 headder->joinmain : サイトロゴをクリック
 joinmain --> main
