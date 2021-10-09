@@ -28,6 +28,15 @@ state ヘッダー{
     ifheadder1 -> searchinheadder : 項目をクリック
 }
 
+state ログイン{}
+state 商品詳細~購入完了{
+    state "商品詳細" as detail1 <<sdlreceive>>
+    state "カート" as cart1 <<sdlreceive>>
+    state "支払画面" as cashregister1 <<sdlreceive>>
+    state "購入後画面" as completion1 <<sdlreceive>>
+    [*]->
+
+}
 
 state マイページ{
 state "購入履歴" as bought <<sdlreceive>>
