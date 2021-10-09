@@ -3,12 +3,12 @@
 title 画面遷移図
 state ifmain <<choice>>
 state joinmain <<join>>
-state "ログイン" as login <<sdlreceive>>
-state "カート" as cart <<sdlreceive>>
-state "商品詳細" as detail <<sdlreceive>>
+'state "ログイン" as login <<sdlreceive>>
+'state "カート" as cart <<sdlreceive>>
+'state "商品詳細" as detail <<sdlreceive>>
 state "トップページ" as main <<sdlreceive>>
-state "登録完了" as completionofregistration <<sdlreceive>>
-state "検索後画面" as search <<sdlreceive>>
+'state "登録完了" as completionofregistration <<sdlreceive>>
+'state "検索後画面" as search <<sdlreceive>>
 state "ヘッダー" as headder <<sdlreceive>>
 
 
@@ -30,7 +30,7 @@ state ヘッダー{
     state タブ展開:サイト上部にある「カテゴリ」「ハード」を\nクリックすると展開される
 
     [*]->ifheadder : プロフィールアイコンを\nクリック
-    ifheadder-left->ログイン : 未ログイン時
+    ifheadder->ログイン : 未ログイン時
     ifheadder-up->マイページ : ログイン時
 
     [*]-->searchinheadder :ポピュラー,検索ボタンをクリック
