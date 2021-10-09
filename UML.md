@@ -14,7 +14,7 @@ state "ヘッダー" as headder <<sdlreceive>>
 
 
 [*]-->joinmain
-[*]-left->headder
+[*]->headder
 
 headder->joinmain : サイトロゴをクリック
 joinmain --> main
@@ -30,12 +30,12 @@ state ヘッダー{
     state タブ展開:サイト上部にある「カテゴリ」「ハード」を\nクリックすると展開される
 
     [*]->ifheadder : プロフィールアイコンを\nクリック
-    ifheadder-up->ログイン : 未ログイン時
+    ifheadder->ログイン : 未ログイン時
     ifheadder-up->マイページ : ログイン時
 
     [*]-->searchinheadder :ポピュラー,検索ボタンをクリック
     [*]-right->ifheadder1 : カテゴリ,ハードをクリック
-    ifheadder1 --> searchinheadder : 項目をクリック
+    ifheadder1 -> searchinheadder : 項目をクリック
 }
 
 state ログイン{
