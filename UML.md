@@ -30,11 +30,12 @@ state ヘッダー{
 
 state ログイン{
     state iflogin <<choice>>
-    state ifjoin <<join>>
     state ログインエラー表示
+
     [*]--> iflogin : ログイン情報入力
     iflogin -> ログインエラー表示 : 入力情報誤り
-    iflogin --> main
+    ログインエラー表示 -> iflogin
+    iflogin --> main : ログイン成功時
 }
 state 商品詳細から購入完了{
     state if1 <<choice>>
