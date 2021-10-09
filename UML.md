@@ -28,7 +28,14 @@ state ヘッダー{
     ifheadder1 -> searchinheadder : 項目をクリック
 }
 
-state ログイン{}
+state ログイン{
+    state iflogin <<choice>>
+    state ifjoin <<join>>
+    state ログインエラー表示
+    [*]--> iflogin : ログイン情報入力
+    iflogin -> ログインエラー表示 : 入力情報誤り
+    iflogin --> main
+}
 state 商品詳細~購入完了{
     state "商品詳細" as detail1 <<sdlreceive>>
     state "カート" as cart1 <<sdlreceive>>
