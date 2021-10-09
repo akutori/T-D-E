@@ -18,7 +18,7 @@ state "ヘッダー" as headder <<sdlreceive>>
 
 headder->joinmain : サイトロゴをクリック
 joinmain --> main
-main -> ifmain
+main -left-> ifmain
 ifmain -> マイページ
 ifmain --> ログイン
 
@@ -45,7 +45,7 @@ state ログイン{
     [*]-> iflogin : ログイン情報入力
     iflogin -up-> ログインエラー表示 : 入力情報誤り
     ログインエラー表示 -up-> iflogin
-    iflogin -up-> main : ログイン成功時
+    iflogin -> main : ログイン成功時
 }
 state 商品詳細から購入完了{
     state if1 <<choice>>
