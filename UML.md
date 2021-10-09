@@ -12,7 +12,7 @@ state "ヘッダー" as headder <<sdlreceive>>
 
 
 [*]-->main
-[*]-up->headder
+[*]->headder
 headder->main : サイトロゴをクリック
 
 state ヘッダー{
