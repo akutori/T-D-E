@@ -51,12 +51,14 @@ state 商品詳細から購入完了{
     state "カート内商品削除完了" as deleteafter <<sdlreceive>>
     state "購入後画面" as buyafter <<sdlreceive>>
     state "トップページ" as main1 <<sdlreceive>>
+state "購入確認" as buycheck <<sdlreceive>>
 
     [*]-> detail1
     detail1 --> cart1 : カートに入れる\nをクリック
     cart1 -> if1
     if1 -up-> cashregister1 : 支払いに進むをクリック
-    cashregister1 -> buyafter : 支払うをクリック
+cashregister1 -> buycheck : 支払うをクリック
+    buycheck -> buyafter : 購入をクリック
     buyafter -up-> main
     
     if1 --> deletegodds : 削除をクリック
