@@ -1,6 +1,7 @@
 ```uml
 @startuml
 title 画面遷移図
+state ifmain <<choice>>
 state "ログイン" as login <<sdlreceive>>
 state "カート" as cart <<sdlreceive>>
 state "商品詳細" as detail <<sdlreceive>>
@@ -14,6 +15,9 @@ state "ヘッダー" as headder <<sdlreceive>>
 [*]-->main
 [*]->headder
 headder->main : サイトロゴをクリック
+main -> ifmain
+ifmain -> マイページ
+ifmain --> ログイン
 
 state ヘッダー{
     state "ログイン" as logininheadder <<sdlreceive>>
@@ -35,7 +39,7 @@ state ログイン{
     [*]-> iflogin : ログイン情報入力
     iflogin -up-> ログインエラー表示 : 入力情報誤り
     ログインエラー表示 -up-> iflogin
-    iflogin --> main : ログイン成功時
+    iflogin -up-> main : ログイン成功時
 }
 state 商品詳細から購入完了{
     state if1 <<choice>>
