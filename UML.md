@@ -2,6 +2,7 @@
 @startuml
 title 画面遷移図
 state ifmain <<choice>>
+state joinmain <<join>>
 state "ログイン" as login <<sdlreceive>>
 state "カート" as cart <<sdlreceive>>
 state "商品詳細" as detail <<sdlreceive>>
@@ -12,9 +13,11 @@ state "ヘッダー" as headder <<sdlreceive>>
 
 
 
-[*]-->main
+[*]-->joinmain
 [*]->headder
-headder->main : サイトロゴをクリック
+
+headder->joinmain : サイトロゴをクリック
+joinmain --> main
 main -> ifmain
 ifmain -> マイページ
 ifmain --> ログイン
