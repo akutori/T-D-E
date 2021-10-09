@@ -30,7 +30,7 @@ state ヘッダー{
     state タブ展開:サイト上部にある「カテゴリ」「ハード」を\nクリックすると展開される
 
     [*]->ifheadder : プロフィールアイコンを\nクリック
-    ifheadder->ログイン : 未ログイン時
+    ifheadder-left->ログイン : 未ログイン時
     ifheadder-up->マイページ : ログイン時
 
     [*]-->searchinheadder :ポピュラー,検索ボタンをクリック
