@@ -23,13 +23,16 @@ ifmain -> マイページ
 ifmain --> ログイン
 
 state ヘッダー{
-    state "ログイン" as logininheadder <<sdlreceive>>
+    'state "ログイン" as logininheadder <<sdlreceive>>
     state ifheadder <<choice>>
     state ifheadder1 <<choice>>
     state "検索後画面" as searchinheadder <<sdlreceive>>
-    [*]->ifheadder : プロフィールアイコンをクリック
-    ifheadder->logininheadder : 未ログイン時
+    state タブ展開:サイト上部にある「カテゴリ」「ハード」を\nクリックすると展開される
+
+    [*]->ifheadder : プロフィールアイコンを\nクリック
+    ifheadder->ログイン : 未ログイン時
     ifheadder-up->マイページ : ログイン時
+
     [*]-->searchinheadder :ポピュラー,検索ボタンをクリック
     [*]-right->ifheadder1 : カテゴリ,ハードをクリック
     ifheadder1 -> searchinheadder : 項目をクリック
@@ -37,7 +40,7 @@ state ヘッダー{
 
 state ログイン{
     state iflogin <<choice>>
-    state ログインエラー表示
+    state ログインエラー表示:画面の遷移はしない
 
     [*]-> iflogin : ログイン情報入力
     iflogin -up-> ログインエラー表示 : 入力情報誤り
@@ -75,7 +78,7 @@ state "購入履歴" as bought <<sdlreceive>>
 state "アイコン編集" as icon <<sdlreceive>>
 state "登録内容変更" as change <<sdlreceive>>
 
-[*]->bought : 購入履歴をクリック
+[*]-up->bought : 購入履歴をクリック
 [*]-->change : 「編集」をクリック
 [*]->icon : プロフィールアイコンをクリック
 }
