@@ -36,7 +36,7 @@ state ログイン{
     iflogin -> ログインエラー表示 : 入力情報誤り
     iflogin --> main
 }
-state 商品詳細~購入完了{
+state 商品詳細～購入完了{
     state "商品詳細" as detail1 <<sdlreceive>>
     state "カート" as cart1 <<sdlreceive>>
     state "支払画面" as cashregister1 <<sdlreceive>>
