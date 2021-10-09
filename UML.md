@@ -33,8 +33,8 @@ state ログイン{
     state ログインエラー表示
 
     [*]-> iflogin : ログイン情報入力
-    iflogin -> ログインエラー表示 : 入力情報誤り
-    ログインエラー表示 -> iflogin
+    iflogin -up-> ログインエラー表示 : 入力情報誤り
+    ログインエラー表示 -up-> iflogin
     iflogin --> main : ログイン成功時
 }
 state 商品詳細から購入完了{
