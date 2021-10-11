@@ -1,5 +1,6 @@
 ```uml
 @startuml
+scale 2
 'defineによるカラー変数の設定
 !define MASTERCOLOR #fc8403
 !define TABLECOLOR #59b7ff
