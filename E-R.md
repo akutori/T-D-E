@@ -1,7 +1,7 @@
 ```uml
 @startuml
-scale 2
 'defineによるカラー変数の設定
+scale 2
 !define MASTERCOLOR #fc8403
 !define TABLECOLOR #59b7ff
 entity "**goods**\n商品マスタ" as goods<<マ,MASTERCOLOR>> {
@@ -30,7 +30,6 @@ entity "**user**\nユーザーマスタ" as user <<マ,MASTERCOLOR>>{
 住所
 ユーザーサムネイル
 }
-package "ユーザーごとに持つ" as inunser{
     entity "**ph**\n購入履歴テーブル" as ph <<テ,TABLECOLOR>>{
         - ユーザーID **[PK][FK]**
         - 商品ID **[PK][FK]**
@@ -44,11 +43,10 @@ package "ユーザーごとに持つ" as inunser{
         個数
         削除フラグ
     }
-}
 
 user ||-u-|| cart
 goods }o-d-|| ph
 user ||-u-|| ph
-goods }o---|{ cart
+goods }o-|{ cart
 @enduml
 ```
