@@ -41,12 +41,11 @@ entity "**user**\nユーザーマスタ" as user <<マ,MASTERCOLOR>>{
         - ユーザーID **[PK][FK]**
         --
         個数
-        削除フラグ
     }
 
-user ||-u-|| cart
-goods }o-d-|| ph
-user ||-u-|| ph
-goods }o-|{ cart
+user ||-u-|{ cart
+goods ||-d-o| ph
+user ||-u-o| ph
+goods ||-o{ cart
 @enduml
 ```
