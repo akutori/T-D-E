@@ -1,6 +1,6 @@
 ```uml
 @startuml
-scale 1.25
+scale 1.23
 title 画面遷移図
 state ifmain <<choice>>
 state "トップページ" as main <<sdlreceive>>
