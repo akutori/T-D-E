@@ -89,7 +89,7 @@ state 入力フォーム:入力フォーム
 
 [*]->入力フォーム
 入力フォーム->checkregist : 「登録」をクリック
-入力フォーム -up-> ログイン : ログインはこちら
+入力フォーム -up-> ログイン : ログインはこちらをクリック
 checkregist -> okregist : 入力情報に不足,ミス無し
 okregist -> maininregist
 checkregist -up-> 入力フォーム : 入力情報にミスあり
