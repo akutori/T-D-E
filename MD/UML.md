@@ -24,7 +24,7 @@ end note
 state ログイン{
     state iflogin <<choice>>
     state ログインエラー表示:画面の遷移はしない
-state "トップページ" as maininlogin <<sdlreceive>>
+    state "トップページ" as maininlogin <<sdlreceive>>
 
     [*]-> iflogin : ログイン情報入力
     iflogin -up-> ログインエラー表示 : 入力情報誤り
