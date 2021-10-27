@@ -68,6 +68,8 @@ entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
     entity "**cart**\nカートテーブル" as cart <<テ,TABLECOLOR>>{
         - 商品ID **[PK][FK]**
         - ユーザーID **[PK][FK]**
+        --
+        個数
     }
 
     note top of cart
