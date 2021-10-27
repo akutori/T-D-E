@@ -72,7 +72,8 @@ entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
     }
 
     note right of cart
-        意図的に同じ商品を一度に購入できないようにしています。
+        意図的に同じ商品を一度に購入
+        できないようにしています。
     end note
 
 goods ||-|| quantitity
