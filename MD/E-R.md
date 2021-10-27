@@ -13,8 +13,8 @@ entity "**goods**\n商品" as goods<<マ,MASTERCOLOR>> {
     商品画像
     商品値段
     商品ゲーム種別
-    商品対応ハード**[FK]**
-    在庫ID**[FK]**
+    ハードID**[FK]**
+    在庫数
     商品内容
     ダウンロード商品
     商品発売日
@@ -23,11 +23,11 @@ entity "**goods**\n商品" as goods<<マ,MASTERCOLOR>> {
     クロスプレイ対応フラグ
 }
 
-entity "**quantity**\n在庫テーブル" as quantitity<<テ,TABLECOLOR>>{
-    + 商品ID**[PK]**
-    --
-    商品在庫数
-}
+'entity "**quantity**\n在庫テーブル" as quantitity<<テ,'TABLECOLOR>>{
+'    + 商品ID**[PK]**
+'    --
+'    商品在庫数
+'}
 
 entity "**video**\n動画テーブル" as video<<テ,TABLECOLOR>>{
     + 商品ID**[PK][FK]**
@@ -37,7 +37,7 @@ entity "**video**\n動画テーブル" as video<<テ,TABLECOLOR>>{
 entity "**hard**\nハードテーブル" as hard<<テ,TABLECOLOR>>{
     + ハードID **[PK]**
     --
-    ハード組み合わせ
+    ハード組み合わせ名
 }
 
 note left of hard
@@ -76,12 +76,12 @@ entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
         できないようにしています。
     end note
 
-goods ||-|| quantitity
+'goods ||-|| quantitity
 goods ||-u-|| video
 goods ||-l-|| hard
-user ||-o{ cart
+user ||-u-o{ cart
 goods ||-d-o{ ph
-user ||-u-o| ph
+user ||-l-o| ph
 goods ||-o{ cart
 @enduml
 ```
