@@ -1,6 +1,5 @@
 ```uml
 @startuml
-scale 0.97
 'defineによるカラー変数の設定
 scale 2
 !define MASTERCOLOR #fc8403
@@ -71,7 +70,7 @@ entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
         - ユーザーID **[PK][FK]**
     }
 
-    note right of cart
+    note top of cart
         意図的に同じ商品を一度に購入
         できないようにしています。
     end note
