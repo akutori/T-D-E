@@ -39,7 +39,7 @@ entity "**hard**\nハードテーブル" as hard<<テ,TABLECOLOR>>{
     ハード組み合わせ
 }
 
-note top of hard
+note left of hard
 ハードの組み合わせを予め作っておきます。
 例：001 = ps4
 　　010 = PC
@@ -48,7 +48,7 @@ note top of hard
 end note
 
 entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
-    + ユーザーID **[PK]@**
+    + ユーザーID **[PK]**
     --
     ユーザ名
     メールアドレス
@@ -59,20 +59,26 @@ entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
     ユーザーサムネイル
 }
     entity "**ph**\n購入履歴テーブル" as ph <<テ,TABLECOLOR>>{
-        - ユーザーID **[PK][FK]**
-        - 商品ID **[PK][FK]**
+        + 購入履歴ID**[PK]**
         --
+        - ユーザーID **[FK]**
+        - 商品ID **[FK]**
         購入日
     }
     entity "**cart**\nカートテーブル" as cart <<テ,TABLECOLOR>>{
         - 商品ID **[PK][FK]**
         - ユーザーID **[PK][FK]**
-        --
-        個数
     }
 
-user ||-u-|{ cart
-goods ||-d-o| ph
+    note right of cart
+        意図的に同じ商品を一度に購入できないようにしています。
+    end note
+
+goods ||-|| quantitity
+goods ||-u-|| video
+goods ||-l-|| hard
+user ||-o{ cart
+goods ||-d-o{ ph
 user ||-u-o| ph
 goods ||-o{ cart
 @enduml
