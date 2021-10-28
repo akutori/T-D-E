@@ -8,11 +8,11 @@ scale 2
 entity "**goods**\n商品" as goods<<マ,MASTERCOLOR>> {
     + 商品ID **[PK]**
     --
+    - ハードID**[FK]**
     商品名
     商品画像
     商品値段
     商品ゲーム種別
-    ハードID**[FK]**
     在庫数
     商品内容
     ダウンロード商品
@@ -29,7 +29,7 @@ entity "**goods**\n商品" as goods<<マ,MASTERCOLOR>> {
 '}
 
 entity "**video**\n動画テーブル" as video<<テ,TABLECOLOR>>{
-    + 商品ID**[PK][FK]**
+    - 商品ID**[PK][FK]**
     --
     動画URL
 }
