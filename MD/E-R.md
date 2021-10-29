@@ -1,9 +1,22 @@
 ```uml
 @startuml
+scale 0.76
 'defineによるカラー変数の設定
 scale 2
 !define MASTERCOLOR #fc8403
 !define TABLECOLOR #59b7ff
+
+note as n1 
+    カーディナリティ(多重度)の説明
+    | : 1
+    o : 0
+    E : 複数
+    ex)
+        || = 1以上1以下
+        o| = 0か1
+        oE = 0以上
+        A ||-oE B = Aから見てBは0以上,Bから見てAは1
+end note
 
 entity "**goods**\n商品" as goods<<マ,MASTERCOLOR>> {
     + 商品ID **[PK]**
@@ -45,18 +58,6 @@ note left of hard
 　　010 = PC
 　　100 = switch
 　　011 = ps4,PC
-end note
-
-note as n1 
-    カーディナリティ(多重度)の説明
-    | : 1
-    o : 0
-    E : 複数
-    ex)
-        || = 1以上1以下
-        o| = 0か1
-        oE = 0以上
-        A ||-oE B = Aから見てBは0以上,Bから見てAは1
 end note
 
 entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
