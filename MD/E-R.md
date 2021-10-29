@@ -1,6 +1,6 @@
 ```uml
 @startuml
-scale 0.76
+scale 0.56
 'defineによるカラー変数の設定
 scale 2
 !define MASTERCOLOR #fc8403
