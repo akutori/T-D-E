@@ -1,6 +1,5 @@
 ```uml
 @startuml
-scale 0.56
 'defineによるカラー変数の設定
 scale 2
 !define MASTERCOLOR #fc8403
@@ -90,6 +89,8 @@ entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
         できないようにしています。
     end note
 
+n1 .. goods
+
 'goods ||-|| quantitity
 goods ||-u-|| video
 goods ||-l-|| hard
@@ -97,7 +98,5 @@ user ||-u-o{ cart
 goods ||-d-o{ ph
 user ||-l-o| ph
 goods ||-o{ cart
-
-
 @enduml
 ```
