@@ -47,6 +47,18 @@ note left of hard
 　　011 = ps4,PC
 end note
 
+note as n1 
+    カーディナリティ(多重度)の説明
+    | : 1
+    o : 0
+    E : 複数
+    ex)
+        || = 1以上1以下
+        o| = 0か1
+        oE = 0以上
+        A ||-oE B = Aから見てBは0以上,Bから見てAは1
+end note
+
 entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
     + ユーザーID **[PK]**
     --
@@ -84,5 +96,7 @@ user ||-u-o{ cart
 goods ||-d-o{ ph
 user ||-l-o| ph
 goods ||-o{ cart
+
+
 @enduml
 ```
