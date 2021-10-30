@@ -5,14 +5,26 @@ scale 2
 !define MASTERCOLOR #fc8403
 !define TABLECOLOR #59b7ff
 
+note as n1 
+    カーディナリティ(多重度)の説明
+    | : 1
+    o : 0
+    E : 複数
+    ex)
+        || = 1以上1以下
+        o| = 0か1
+        oE = 0以上
+        A ||-oE B = Aから見てBは0以上,Bから見てAは1
+end note
+
 entity "**goods**\n商品" as goods<<マ,MASTERCOLOR>> {
     + 商品ID **[PK]**
     --
+    - ハードID**[FK]**
     商品名
     商品画像
     商品値段
     商品ゲーム種別
-    ハードID**[FK]**
     在庫数
     商品内容
     ダウンロード商品
@@ -29,7 +41,7 @@ entity "**goods**\n商品" as goods<<マ,MASTERCOLOR>> {
 '}
 
 entity "**video**\n動画テーブル" as video<<テ,TABLECOLOR>>{
-    + 商品ID**[PK][FK]**
+    - 商品ID**[PK][FK]**
     --
     動画URL
 }
@@ -76,6 +88,8 @@ entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
         意図的に同じ商品を一度に購入
         できないようにしています。
     end note
+
+n1 .. goods
 
 'goods ||-|| quantitity
 goods ||-u-|| video
