@@ -18,8 +18,8 @@ entity "**goods**\n商品" as goods<<マ,MASTERCOLOR>> {
     ダウンロード商品
     商品発売日
     商品人気度
-    削除フラグ
     クロスプレイ対応フラグ
+    削除フラグ
 }
 
 'entity "**quantity**\n在庫テーブル" as quantitity<<テ,'TABLECOLOR>>{
@@ -82,7 +82,8 @@ goods ||-u-|| video
 goods ||-l-|| hard
 user ||-u-o{ cart
 goods ||-d-o{ ph
-user ||-l-o| ph
+'ユーザーからみて自分のユーザーIDは0以上存在する
+user ||-l-o{ ph 
 goods ||-o{ cart
 @enduml
 ```
