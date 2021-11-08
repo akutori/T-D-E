@@ -10,7 +10,7 @@ scale 2
 entity "**goods**\n商品" as goods<<マ,MASTERCOLOR>> {
     + 商品ID **[PK]**
     --
-    - ハードID**[FK]**
+    - ハードID**[PK][FK]**
     商品名
     商品画像
     商品値段
@@ -63,8 +63,8 @@ entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
     entity "**ph**\n購入履歴テーブル" as ph <<テ,TABLECOLOR>>{
         + 購入履歴ID**[PK]**
         --
-        - ユーザーID **[FK]**
-        - 商品ID **[FK]**
+        - ユーザーID **[PK][FK]**
+        - 商品ID **[PK][FK]**
         購入日
     }
     entity "**cart**\nカートテーブル" as cart <<テ,TABLECOLOR>>{
