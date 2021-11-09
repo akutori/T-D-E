@@ -84,8 +84,8 @@ entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
     }
 
     note right of cart
-        意図的に同じ商品を一度に購入
-        できないようにしています。
+        意図的に同じ商品を一度に購
+        入できないようにしています。
     end note
 
 package グッズ参照先 as pack{
