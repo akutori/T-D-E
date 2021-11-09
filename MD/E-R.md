@@ -71,7 +71,7 @@ entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
         値段
     }
 
-    note left of ph
+    note top of ph
         行番号は同じ購入履歴IDの商品を
         羅列したものに番号を割り当てただけです。    
     end note
@@ -83,7 +83,7 @@ entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
         個数
     }
 
-    note right of cart
+    note top of cart
         意図的に同じ商品を一度に購
         入できないようにしています。
     end note
@@ -133,9 +133,9 @@ goods ||-u-|| hard
 user ||-u-o{ cart
 goods ||-d-o{ ph
 'ユーザーからみて自分のユーザーIDは0以上存在する
-goods ||-o{ cart
-user ||-l-o{ phheader
-phheader ||-l-|{ ph
+goods ||-l-o{ cart
+user ||-r-o{ phheader
+phheader ||-r-|{ ph
 goods ||--o{ phheader
 goods ||-u-|| game
 goods||-u-|| quantity
