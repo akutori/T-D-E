@@ -101,6 +101,12 @@ package グッズ参照先 as pack{
         ハード名
     }
 
+    entity "**genre**\nゲームジャンルーテーブル" as genre<<テ,TABLECOLOR>>{
+        + ジャンルID**[PK]**
+        --
+        ジャンル名
+    }
+
     entity "**game**\nゲームテーブル" as game<<テ,TABLECOLOR>>{
         + ゲームID**[PK]**
         --
@@ -118,11 +124,7 @@ package グッズ参照先 as pack{
         在庫数
     }
 
-    entity "**genre**\nゲームジャンルーテーブル" as genre<<テ,TABLECOLOR>>{
-        + ジャンルID**[PK]**
-        --
-        ジャンル名
-    }
+    
 
 }
 
