@@ -128,6 +128,11 @@ package グッズ参照先 as pack{
 
 }
 
+note top of pack
+　商品マスタとカーディナリティ(多重度)が
+  1対1のものをまとめました。
+end note
+
 goods ||-u-|| video
 goods ||-u-|| hard
 user ||-u-o{ cart
