@@ -10,13 +10,14 @@ entity "**ph header**\n購入履歴ヘッダー" as phheader <<テ,TABLECOLOR>>{
     --
     - ユーザID**[FK]**
     - 商品ID**[FK]**
+    --
     個数
-    '値段
     購入日時
     支払方法
     小計
     'お預かり額
-    'お釣り 
+    'お釣り
+    '値段
 }
 
 entity "**goods**\n商品" as goods<<マ,MASTERCOLOR>> {
@@ -24,51 +25,25 @@ entity "**goods**\n商品" as goods<<マ,MASTERCOLOR>> {
     --
     - ハードID**[FK]**
     - ゲームID**[FK]**
-    在庫数
-    商品内容
-    ダウンロード商品
+    - ダウンロード商品フラグ **[FK]**
+    - 在庫数**[FK]**
+    - 動画URL**[FK]**
+    --
     商品発売日
     商品人気度
-    
     削除フラグ 
 }
 
-entity "**game**\nゲームテーブル" as game<<テ,TABLECOLOR>>{
-    + ゲームID**[PK]**
+entity "**genre**\nゲームジャンルーテーブル" as genre<<テ,TABLECOLOR>>{
+    + ジャンルID**[PK]**
     --
-    - ジャンルID**[FK]**
-    ゲーム名
-    値段
-    クロスプレイ対応フラグ
-}
-
-entity "**category**\nゲームカテゴリーテーブル" as category<<テ,TABLECOLOR>>{
-    + カテゴリーID**[PK]**
-    --
-    - ゲームID**[FK]**
+    ジャンル名
 }
 
 entity "**download**\nダウンロード商品可否テーブル" as download<<テ,TABLECOLOR>>{
-    + ゲームID**[PK]**
-    --
-    - ダウンロード商品フラグ
-}
-
-'entity "**quantity**\n在庫テーブル" as quantitity<<テ,'TABLECOLOR>>{
-'    + 商品ID**[PK]**
-'    --
-'    商品在庫数
-'}
-
-entity "**video**\n動画テーブル" as video<<テ,TABLECOLOR>>{
     - 商品ID**[PK][FK]**
     --
-    動画URL
-}
-entity "**hard**\nハードテーブル" as hard<<テ,TABLECOLOR>>{
-    + ハードID **[PK]**
-    --
-    ハード名
+    ダウンロード商品フラグ
 }
 
 'note left of hard
@@ -93,8 +68,8 @@ entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
 
     entity "**ph**\n購入履歴テーブル" as ph <<テ,TABLECOLOR>> {
         - 購入履歴ID**[FK]**
-        --
         - 商品ID **[FK]**
+        --
         行番号
         商品名
         個数
@@ -118,6 +93,37 @@ entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
         できないようにしています。
     end note
 
+package グッズ参照先 as pack{
+        entity "**video**\n動画テーブル" as video<<テ,TABLECOLOR>>{
+        - 商品ID**[PK][FK]**
+        --
+        動画URL
+    }
+
+    entity "**hard**\nハードテーブル" as hard<<テ,TABLECOLOR>>{
+        + ハードID **[PK]**
+        --
+        ハード名
+    }
+
+    entity "**game**\nゲームテーブル" as game<<テ,TABLECOLOR>>{
+        + ゲームID**[PK]**
+        --
+        - ジャンルID**[FK]**
+        --
+        ゲーム名
+        値段
+        商品内容
+        クロスプレイ対応フラグ
+    }
+    entity "**quantity**\n在庫テーブル" as quantity<<テ,TABLECOLOR>>{
+        - ゲームID**[PK][FK]**
+        --
+        在庫数
+    }
+
+}
+
 'goods ||-|| quantitity
 goods ||-u-|| video
 goods ||-l-|| hard
@@ -128,5 +134,7 @@ goods ||-o{ cart
 user ||-l-o{ phheader
 phheader ||-l-|{ ph
 goods ||--o{ phheader
+goods ||--l--|| game
+goods||-u-|| quantity
 @enduml
 ```
