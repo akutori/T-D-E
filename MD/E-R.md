@@ -25,26 +25,21 @@ entity "**goods**\n商品" as goods<<マ,MASTERCOLOR>> {
     --
     - ハードID**[FK]**
     - ゲームID**[FK]**
-    - ダウンロード商品フラグ **[FK]**
+    '- ダウンロード商品フラグ **[FK]**
     - 在庫数**[FK]**
     - 動画URL**[FK]**
     --
     商品発売日
     商品人気度
+    ダウンロード商品フラグ
     削除フラグ 
 }
 
-entity "**genre**\nゲームジャンルーテーブル" as genre<<テ,TABLECOLOR>>{
-    + ジャンルID**[PK]**
-    --
-    ジャンル名
-}
-
-entity "**download**\nダウンロード商品可否テーブル" as download<<テ,TABLECOLOR>>{
-    - 商品ID**[PK][FK]**
-    --
-    ダウンロード商品フラグ
-}
+'entity "**download**\nダウンロード商品可否テーブ'ル" as download<<テ,TABLECOLOR>>{
+'    - 商品ID**[PK][FK]**
+'    --
+'    ダウンロード商品フラグ
+'}
 
 'note left of hard
 'ハードの組み合わせを予め作っておきます。
@@ -116,17 +111,23 @@ package グッズ参照先 as pack{
         商品内容
         クロスプレイ対応フラグ
     }
+
     entity "**quantity**\n在庫テーブル" as quantity<<テ,TABLECOLOR>>{
         - ゲームID**[PK][FK]**
         --
         在庫数
     }
 
+    entity "**genre**\nゲームジャンルーテーブル" as genre<<テ,TABLECOLOR>>{
+        + ジャンルID**[PK]**
+        --
+        ジャンル名
+    }
+
 }
 
-'goods ||-|| quantitity
 goods ||-u-|| video
-goods ||-l-|| hard
+goods ||-u-|| hard
 user ||-u-o{ cart
 goods ||-d-o{ ph
 'ユーザーからみて自分のユーザーIDは0以上存在する
@@ -134,7 +135,8 @@ goods ||-o{ cart
 user ||-l-o{ phheader
 phheader ||-l-|{ ph
 goods ||--o{ phheader
-goods ||--l--|| game
+goods ||-u-|| game
 goods||-u-|| quantity
+game }o-u-|| genre
 @enduml
 ```
