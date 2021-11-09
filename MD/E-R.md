@@ -83,7 +83,7 @@ entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
         個数
     }
 
-    note top of cart
+    note right of cart
         意図的に同じ商品を一度に購入
         できないようにしています。
     end note
