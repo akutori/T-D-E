@@ -9,7 +9,7 @@ entity "**ph header**\n購入履歴ヘッダー" as phheader <<テ,TABLECOLOR>>{
     + 購入履歴ID**[PK]**
     --
     - ユーザID**[FK]**
-    - 商品ID**[FK]**
+    '- 商品ID**[FK]**
     --
     個数
     購入日時
@@ -28,9 +28,11 @@ entity "**goods**\n商品" as goods<<マ,MASTERCOLOR>> {
     '- ダウンロード商品フラグ **[FK]**
     - 在庫数**[FK]**
     - 動画URL**[FK]**
+    - 人気度**[FK]**
+    - 画像名**[FK]**
     --
+    値段
     商品発売日
-    商品人気度
     ダウンロード商品フラグ
     削除フラグ 
 }
@@ -66,10 +68,12 @@ entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
         - 商品ID **[FK]**
         --
         行番号
-        商品名
-        個数
+        '商品名
+        '個数
         値段
     }
+
+
 
     note top of ph
         行番号は同じ購入履歴IDの商品を
@@ -111,11 +115,17 @@ package グッズ参照先 as pack{
         + ゲームID**[PK]**
         --
         - ジャンルID**[FK]**
+        - 画像ID**[FK]**
         --
         ゲーム名
-        値段
         商品内容
         クロスプレイ対応フラグ
+    }
+
+    entity "**gameimage**\nパッケージ画像テーブル" as gameimage<<テ,TABLECOLOR>>{
+        - ゲームID**[PK][FK]**
+        --
+        画像名
     }
 
     entity "**quantity**\n在庫テーブル" as quantity<<テ,TABLECOLOR>>{
@@ -124,12 +134,17 @@ package グッズ参照先 as pack{
         在庫数
     }
 
+    entity "**popular**\n人気度テーブル" as popular <<テ,TABLECOLOR>> {
+        - 商品ID **[PK][FK]**
+        --
+        人気度
+    }
     
 
 }
 
 note top of pack
-　商品マスタとカーディナリティ(多重度)が
+　商品とカーディナリティ(多重度)が
   1対1のものをまとめました。
 end note
 
@@ -142,8 +157,10 @@ goods ||-l-o{ cart
 user ||-r-o{ phheader
 phheader ||-r-|{ ph
 goods ||--o{ phheader
-goods ||-u-|| game
+goods ||-u--|| game
 goods||-u-|| quantity
 game }o-u-|| genre
+goods||-u-|| popular
+game ||-l-|| gameimage
 @enduml
 ```
