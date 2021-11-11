@@ -87,10 +87,7 @@ entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
         個数
     }
 
-    note top of cart
-        意図的に同じ商品を一度に購
-        入できないようにしています。
-    end note
+
 
 package グッズ参照先 as pack{
         entity "**video**\n動画テーブル" as video<<テ,TABLECOLOR>>{
@@ -142,6 +139,10 @@ package グッズ参照先 as pack{
     
 
 }
+note top of cart
+    意図的に同じ商品を一度に購
+    入できないようにしています。
+end note
 
 note top of pack
 　商品とカーディナリティ(多重度)が
@@ -156,11 +157,11 @@ goods ||-l-o{ cart
 user ||-r-o{ phheader
 phheader ||-r-|{ ph
 goods ||--o{ phheader
-goods }|-u--|| game
 goods ||-u-|| quantity
 game }o-u-|| genre
+game ||-u-|| gameimage
 goods||-u-|| popular
-game ||-l-|| gameimage
+goods }|-u--|| game
 
 @enduml
 ```
