@@ -161,5 +161,6 @@ goods ||-u-|| quantity
 game }o-u-|| genre
 goods||-u-|| popular
 game ||-l-|| gameimage
+
 @enduml
 ```
