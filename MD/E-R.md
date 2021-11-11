@@ -129,7 +129,7 @@ package グッズ参照先 as pack{
     }
 
     entity "**quantity**\n在庫テーブル" as quantity<<テ,TABLECOLOR>>{
-        - ゲームID**[PK][FK]**
+        - 商品ID**[PK][FK]**
         --
         在庫数
     }
@@ -159,7 +159,6 @@ goods ||--o{ phheader
 goods }|-u--|| game
 goods ||-u-|| quantity
 game }o-u-|| genre
-game ||-u-|| quantity
 goods||-u-|| popular
 game ||-l-|| gameimage
 @enduml
