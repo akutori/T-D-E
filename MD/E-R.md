@@ -145,21 +145,21 @@ package グッズ参照先 as pack{
 
 note top of pack
 　商品とカーディナリティ(多重度)が
-  1対1のものをまとめました。
+  同じのものをまとめました。
 end note
 
+goods }|-u-|| hard
 goods ||-u-|| video
-goods ||-u-|| hard
 user ||-u-o{ cart
 goods ||-d-o{ ph
-'ユーザーからみて自分のユーザーIDは0以上存在する
 goods ||-l-o{ cart
 user ||-r-o{ phheader
 phheader ||-r-|{ ph
 goods ||--o{ phheader
-goods ||-u--|| game
-goods||-u-|| quantity
+goods }|-u--|| game
+goods ||-u-|| quantity
 game }o-u-|| genre
+game ||-u-|| quantity
 goods||-u-|| popular
 game ||-l-|| gameimage
 @enduml
