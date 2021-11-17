@@ -66,10 +66,8 @@ entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
     end note
 
     entity "**cart**\nカートテーブル" as cart <<テ,TABLECOLOR>>{
-        - 商品ID **[FK]**
-        - ユーザーID **[PK][FK]**
-        --
-        個数
+        ~ ユーザーID **[セッション]**
+        ~ 商品ID **[セッション]**
     }
 
 
