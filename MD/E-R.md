@@ -37,19 +37,14 @@ entity "**goods**\n商品" as goods<<マ,MASTERCOLOR>> {
     削除フラグ 
 }
 
-'entity "**download**\nダウンロード商品可否テーブ'ル" as download<<テ,TABLECOLOR>>{
-'    - 商品ID**[PK][FK]**
-'    --
-'    ダウンロード商品フラグ
-'}
-
-'note left of hard
-'ハードの組み合わせを予め作っておきます。
-'例：001 = ps4
-'　　010 = PC
-'　　100 = switch
-'　　011 = ps4,PC
-'end note
+entity "**kou**\nお知らせテーブル" as info<<テ,TABLECOLOR>>{
+    + 項目ID**[PK]**
+    --
+    題名
+    内容
+    項目日付
+    削除フラグ
+}
 
 entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
     + ユーザーID **[PK]**
@@ -82,12 +77,10 @@ entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
 
     entity "**cart**\nカートテーブル" as cart <<テ,TABLECOLOR>>{
         - 商品ID **[FK]**
-        - ユーザーID **[PK][FK]**
+        - ユーザーID **[FK]**
         --
         個数
     }
-
-
 
 package グッズ参照先 as pack{
         entity "**video**\n動画テーブル" as video<<テ,TABLECOLOR>>{
@@ -137,7 +130,6 @@ package グッズ参照先 as pack{
         人気度
     }
     
-
 }
 note top of cart
     意図的に同じ商品を一度に購
