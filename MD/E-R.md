@@ -37,15 +37,6 @@ entity "**goods**\n商品" as goods<<マ,MASTERCOLOR>> {
     削除フラグ 
 }
 
-entity "**kou**\nお知らせテーブル" as info<<テ,TABLECOLOR>>{
-    + 項目ID**[PK]**
-    --
-    題名
-    内容
-    項目日付
-    削除フラグ
-}
-
 entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
     + ユーザーID **[PK]**
     --
@@ -131,6 +122,20 @@ package グッズ参照先 as pack{
     }
     
 }
+
+entity "**kou**\nお知らせテーブル" as info<<テ,TABLECOLOR>>{
+    + 項目ID**[PK]**
+    --
+    題名
+    内容
+    項目日付
+    削除フラグ
+}
+
+note right of info
+    お知らせテーブルは全てのテーブルから独立しています
+end note
+
 note top of cart
     意図的に同じ商品を一度に購
     入できないようにしています。
@@ -154,6 +159,5 @@ game }o-u-|| genre
 game ||-u-|| gameimage
 goods||-u-|| popular
 goods }|-u--|| game
-
 @enduml
 ```
