@@ -69,11 +69,10 @@ entity "**user**\nユーザー" as user <<マ,MASTERCOLOR>>{
     entity "**cart**\nカートテーブル" as cart <<テ,TABLECOLOR>>{
         - 商品ID **[FK]**
         - ユーザーID **[FK]**
-        --
-        個数
     }
 
 package グッズ参照先 as pack{
+
         entity "**video**\n動画テーブル" as video<<テ,TABLECOLOR>>{
         - 商品ID**[PK][FK]**
         --
